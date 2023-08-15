@@ -1,5 +1,5 @@
 {
-  "name": "@uzenith360/utils",
+  "name": "@sulaimon23/utils",
   "version": "0.0.0-development",
   "description": "Typescript utilities commonly used in apps",
   "scripts": {
@@ -13,18 +13,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/uzenith360/utils.git"
+    "url": "https://github.com/sulaimon23/utils.git"
   },
   "keywords": [
     "typescript",
     "utilities"
   ],
-  "author": "@uzenith360",
+  "author": "@sulaimon23",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/uzenith360/utils/issues"
+    "url": "https://github.com/sulaimon23/utils/issues"
   },
-  "homepage": "https://github.com/uzenith360/utils#readme",
+  "homepage": "https://github.com/sulaimon23/utils#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/",
     "access": "public"
