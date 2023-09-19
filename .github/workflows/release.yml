@@ -3,13 +3,13 @@ name: Release
 on:
   workflow_run:
     workflows: ['Snyk Security Check', 'Tests']
-    branches: [main, beta]
+    branches: [master, beta]
     types:
       - completed
 
 # on:
 #   push:
-#     branches: [main, beta]
+#     branches: [master, beta]
 
 jobs:
   release:
@@ -28,21 +28,20 @@ jobs:
       # with:
       #   node-version: 16.x
     - name: Install dependencies
-      run: npx ci
-      # run: npm ci
+      run: npm ci
     - name: Install semantic-release extra plugins
       run: npm install --save-dev @semantic-release/changelog @semantic-release/git      
     # - name: Lint
     #   run: npm run lint-fix
    # Redundant cos tests workflow has already been run
     - name: Test
-      run: npm run test:unit --if-present
+      run: npm test
     - name: Build
       run: npm run build 
     - name: Create .npmrc file
       run: |
         echo registry=https://registry.npmjs.org/ > .npmrc
-        echo @sulaimon23:registry=https://npm.pkg.github.com/ > .npmrc
+        echo @sulaimon23:registry=https://npm.pkg.github.com/ >> .npmrc
         echo '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN  }}' >> .npmrc     
     - name: Release
       env:
