@@ -50,22 +50,22 @@ In CI, `actions/setup-node` will write this for you:
 
 ## Usage
 
-Everything is exposed as a single default-exported object. `require()` resolves to
-`lib/cjs/index.js` and `import` to `lib/esm/index.mjs`, so both styles work
-against the same types:
+Every utility is available both as a named export and as a property of the default
+export. `require()` resolves to `lib/cjs/index.js` and `import` to
+`lib/esm/index.mjs`, so both styles work against the same types:
 
 ```ts
-import utils from '@sulaimon23/utils';                  // ESM, default object
-const utils = require('@sulaimon23/utils').default;     // CJS — note the .default
+import { formatMoney, getPaginationParameters } from '@sulaimon23/utils';  // named
+import utils from '@sulaimon23/utils';                                     // default object
+
+const { formatMoney } = require('@sulaimon23/utils');                      // CJS
 ```
 
-Destructure what you need:
+Prefer the named exports — they let a bundler drop the functions you don't use.
+The default export pulls in all of them, and exists so that existing callers keep
+working.
 
-```ts
-import utils from '@sulaimon23/utils';
-
-const { formatMoney, normalizePhoneNumber, getPaginationParameters } = utils;
-```
+The examples below use the default object for brevity.
 
 ### Showing a discounted price
 

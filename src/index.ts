@@ -6,7 +6,7 @@ import addSecondsToDate from "./add-seconds-to-date";
 import addYearsToDate from "./add-years-to-date";
 import capitalize from "./capitalize";
 import discountedPrice from "./discounted-price";
-import formatMoney from './format-money';
+import formatMoney from "./format-money";
 import generateRandomString from "./generate-random-string";
 import generateSequentialString from "./generate-sequential-string";
 import getAAnForWord from "./get-a-an-for-word";
@@ -35,20 +35,7 @@ import getFirstDayOfQuarterDate from "./get-first-day-of-quarter-date";
 import getFirstDayOfWeekDate from "./get-first-day-of-week-date";
 import getFirstDayOfYearDate from "./get-first-day-of-year-date";
 
-// export function helloWorld() {
-//     const message = 'Hello World from my example modern npm package!';
-//     return message;
-// }
-
-// export function goodBye() {
-//     const message = 'Goodbye from my example modern npm package!';
-//     return message;
-// }
-
-export default {
-    // helloWorld,
-    // goodBye,
-
+export {
     addDaysToDate,
     addHoursToDate,
     addMinutesToDate,
@@ -61,8 +48,47 @@ export default {
     generateRandomString,
     generateSequentialString,
     getAAnForWord,
-    getDateDayDiff,
     getDateTimeAgo,
+    getDateDayDiff,
+    getDateFullText,
+    getShortTextDate,
+    getFormattedDateString,
+    getShortTextDayMonthOptionalyear,
+    getDayText,
+    getEndOfDayDate,
+    getMonthDiff,
+    getPaginationParameters,
+    getStartOfDayDate,
+    getFormattedTimeString,
+    isString,
+    normalizePhoneNumber,
+    roundOff2Dp,
+    splitCompoundString,
+    textSubtract,
+    toTitleCase,
+    trimAndLowercase,
+    trimAndUppercase,
+    getFirstDayOfMonthDate,
+    getFirstDayOfQuarterDate,
+    getFirstDayOfWeekDate,
+    getFirstDayOfYearDate,
+};
+
+export default {
+    addDaysToDate,
+    addHoursToDate,
+    addMinutesToDate,
+    addMonthsToDate,
+    addSecondsToDate,
+    addYearsToDate,
+    capitalize,
+    discountedPrice,
+    formatMoney,
+    generateRandomString,
+    generateSequentialString,
+    getAAnForWord,
+    getDateTimeAgo,
+    getDateDayDiff,
     getDateFullText,
     getShortTextDate,
     getFormattedDateString,
