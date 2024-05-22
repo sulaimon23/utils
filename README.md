@@ -143,6 +143,7 @@ defaults in the description.
 | `addMonthsToDate` | `(months: number, date?: Date): Date` | Returns a copy of `date` (default: now) shifted by `months`, following JavaScript's month-overflow rules — 31 Jan plus one month lands in March. |
 | `addSecondsToDate` | `(seconds: number, date?: Date): Date` | Returns a copy of `date` (default: now) shifted by `seconds`; negative values subtract. |
 | `addYearsToDate` | `(years: number, date?: Date): Date` | Returns a copy of `date` (default: now) shifted by `years`; negative values subtract. |
+| `getAge` | `(birthDate: Date \| string \| number, asOf?: Date): number` | Whole years elapsed from `birthDate` to `asOf` (default: now), rolled back a year when the birthday hasn't come round yet. |
 | `getDateDayDiff` | `(date: Date, anotherDate: Date): number` | Whole calendar days between the two dates, compared at midnight and always returned as a non-negative number. |
 | `getDateFullText` | `(input: number \| string \| Date): string` | Formats as `MONTH D, YYYY` with an uppercase full month name, e.g. `DECEMBER 17, 2022`. |
 | `getDateTimeAgo` | `(dateStart: string \| number \| Date, dateEnd?: string \| number \| Date): string` | Elapsed time between two instants as abbreviated units largest-first, e.g. `2 hrs 3 mins`, falling back to `3 secs` or `Instant` under a minute; returns `''` unless both arguments are supplied and parse to valid dates. |
@@ -154,10 +155,13 @@ defaults in the description.
 | `getFirstDayOfYearDate` | `(date?: Date): Date` | Midnight on 1 January of the date's year, in local time. |
 | `getFormattedDateString` | `(input: number \| string \| Date): string` | Zero-padded numeric date as `DD/MM/YYYY`, e.g. `17/12/2022`. |
 | `getFormattedTimeString` | `(input: string \| Date \| number): string` | 12-hour clock time with meridiem and no leading zero on the hour, e.g. `10:47 PM`. |
+| `getLastDayOfMonthDate` | `(date?: Date): Date` | Last day of the month containing `date` (default: now), clocked to `23:59:59.999` — the closing bound to `getFirstDayOfMonthDate`'s opening one. |
 | `getMonthDiff` | `(dateFrom: Date, dateTo: Date): number` | Calendar months from `dateFrom` to `dateTo`, ignoring day of month; negative when `dateTo` is the earlier date. |
+| `getOrdinalSuffix` | `(value: number): string` | Appends the English ordinal suffix to a number — `1` → `'1st'`, `2` → `'2nd'`, `11` → `'11th'` — for rendering days of the month. |
 | `getShortTextDate` | `(input: number \| string \| Date): string` | Formats as `D MON YYYY` with an uppercase three-letter month, e.g. `17 DEC 2022`. |
 | `getShortTextDayMonthOptionalyear` | `(input: number \| string \| Date): string` | Formats as `D Mon`, appending the year only when it differs from the current year — `17 Dec` this year, `17 Dec 2022` otherwise. |
 | `getStartOfDayDate` | `(daysAgo?: number, date?: Date): Date` | Takes `date` (default: now), rolls it back `daysAgo` days (default `0`) and sets the clock to `00:00:00.000` — the lower bound of a date-range query. |
+| `isWeekend` | `(date?: Date): boolean` | `true` when `date` (default: now) falls on a Saturday or Sunday, in local time. |
 
 ### Strings
 
