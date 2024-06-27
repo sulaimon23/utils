@@ -150,7 +150,7 @@ defaults in the description.
 | `getDayText` | `(input: number \| string \| Date): string` | Full English weekday name for the date, e.g. `Saturday`. |
 | `getEndOfDayDate` | `(daysAgo?: number, date?: Date): Date` | Takes `date` (default: now), rolls it back `daysAgo` days (default `0`) and sets the clock to `23:59:59.999` — the upper bound of a date-range query. |
 | `getFirstDayOfMonthDate` | `(date?: Date): Date` | Midnight on the 1st of the date's month, in local time. |
-| `getFirstDayOfQuarterDate` | `(date?: Date): Date` | Midnight on the first day of a calendar quarter — but the quarter comes from *today's* month, not from `date`, so only the year is taken from the argument (see Caveats). |
+| `getFirstDayOfQuarterDate` | `(date?: Date): Date` | Midnight on the first day of the calendar quarter containing `date`, in local time. |
 | `getFirstDayOfWeekDate` | `(date?: Date): Date` | Midnight on the Sunday that starts the date's week; weeks are treated as Sunday-first. |
 | `getFirstDayOfYearDate` | `(date?: Date): Date` | Midnight on 1 January of the date's year, in local time. |
 | `getFormattedDateString` | `(input: number \| string \| Date): string` | Zero-padded numeric date as `DD/MM/YYYY`, e.g. `17/12/2022`. |
@@ -197,10 +197,6 @@ defaults in the description.
 
 A few behaviours are worth knowing before you reach for them.
 
-- **`getFirstDayOfQuarterDate` derives the quarter from today, not from its
-  argument.** It calls `new Date().getMonth()` instead of `date.getMonth()`, so
-  only the year is read from the date you pass. It is correct whenever the
-  argument falls in the current quarter, and wrong otherwise.
 - **`getDateTimeAgo` returns `''` when called with one argument.** The second
   parameter is typed optional but the guard rejects a missing `dateEnd`; pass
   `new Date()` explicitly. Its month and year buckets are fixed 30- and 365-day
