@@ -3,15 +3,17 @@ import { assert } from 'chai';
 import getShortTextDayMonthOptionalyear from '../src/get-short-text-day-month-optionalyear';
 
 describe('Get short text day month optionalyear', () => {
-    it('should return the short text in same year from a date object', () => {
+    it('should return the short text without the year for a date in the current year', () => {
+        const currentYear = new Date().getFullYear();
         const expected = '17 Dec';
-        const actual = getShortTextDayMonthOptionalyear(new Date(2022, 11, 17, 22, 47));
+        const actual = getShortTextDayMonthOptionalyear(new Date(currentYear, 11, 17, 22, 47));
         assert.equal(actual, expected);
     });
 
-    it('should return the short text in different year from a date object', () => {
-        const expected = '17 Dec 2021';
-        const actual = getShortTextDayMonthOptionalyear(new Date(2021, 11, 17, 22, 47));
+    it('should return the short text with the year for a date in a different year', () => {
+        const previousYear = new Date().getFullYear() - 1;
+        const expected = `17 Dec ${previousYear}`;
+        const actual = getShortTextDayMonthOptionalyear(new Date(previousYear, 11, 17, 22, 47));
         assert.equal(actual, expected);
     });
 });
