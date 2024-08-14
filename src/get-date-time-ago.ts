@@ -69,7 +69,7 @@ function isValidDate(date: string | number | Date): boolean {
 function getSecondsInTimestamp(dateStart: string | number | Date, dateEnd: string | number | Date): string {
 	const secsInMsecs: number = Math.floor(Math.abs(new Date(dateStart).getTime() - new Date(dateEnd).getTime()) / 1000);
 
-	return !!secsInMsecs ? secsInMsecs + ' sec' + (secsInMsecs > 1 ? 's' : '') : 'Instant';
+	return secsInMsecs ? secsInMsecs + ' sec' + (secsInMsecs > 1 ? 's' : '') : 'Instant';
 }
 
 export default (dateStart: string | number | Date, dateEnd?: string | number | Date): string => {
@@ -86,5 +86,5 @@ export default (dateStart: string | number | Date, dateEnd?: string | number | D
 		},
 	).join(' ');
 
-	return !!dateDiffResult ? dateDiffResult : getSecondsInTimestamp(dateStart, dateEnd);
+	return dateDiffResult ? dateDiffResult : getSecondsInTimestamp(dateStart, dateEnd);
 }

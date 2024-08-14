@@ -1,5 +1,5 @@
 export default (phoneNumber: string, countryCode: string = '234'): string => {
-    let phone: string = String(phoneNumber).trim()/*.replace(/\D/g, '')*/;
+    const phone: string = String(phoneNumber).trim()/*.replace(/\D/g, '')*/;
 
     if (phone.charAt(0) === '+') {
         return phone;
