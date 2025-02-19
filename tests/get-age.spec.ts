@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import getAge from '../src/get-age';
 
 describe('Get age', () => {

@@ -1,26 +1,26 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import isWeekend from '../src/is-weekend';
 
 describe('Is weekend', () => {
     it('should return true for a saturday', () => {
         const actual = isWeekend(new Date(2022, 11, 17));
 
-        assert.isTrue(actual);
+        assert.equal(actual, true);
     });
 
     it('should return true for a sunday', () => {
         const actual = isWeekend(new Date(2022, 11, 18));
 
-        assert.isTrue(actual);
+        assert.equal(actual, true);
     });
 
     it('should return false for a weekday', () => {
         const actual = isWeekend(new Date(2022, 11, 19));
 
-        assert.isFalse(actual);
-        assert.isFalse(isWeekend(new Date(2022, 11, 14)));
-        assert.isFalse(isWeekend(new Date(2022, 11, 16)));
+        assert.equal(actual, false);
+        assert.equal(isWeekend(new Date(2022, 11, 14)), false);
+        assert.equal(isWeekend(new Date(2022, 11, 16)), false);
     });
 
     it('should default to the current date', () => {

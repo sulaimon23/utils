@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import getFirstDayOfYearDate from '../src/get-first-day-of-year-date';
 
 describe('Get first day of year date', () => {

@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import getStartOfDayDate from '../src/get-start-of-day-date';
 
 describe('Get start of day date', () => {

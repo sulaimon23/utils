@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import isString from '../src/is-string';
 
 describe('Is string', () => {

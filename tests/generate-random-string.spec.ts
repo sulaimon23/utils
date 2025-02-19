@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import generateRandomString from '../src/generate-random-string';
 
 describe('Generate random string', () => {

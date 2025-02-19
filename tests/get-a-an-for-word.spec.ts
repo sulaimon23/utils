@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import getAAnForWord from '../src/get-a-an-for-word';
 
 describe('Get a an for word', () => {

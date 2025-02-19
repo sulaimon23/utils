@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import roundOff2Dp from '../src/round-off-2-dp';
 
 describe('Round off 2 dp', () => {

@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import addMinutesToDate from '../src/add-minutes-to-date';
 
 describe('Add minutes to date', () => {

@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import formatMoney from '../src/format-money';
 
 describe('Format money', () => {

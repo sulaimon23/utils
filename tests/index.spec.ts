@@ -1,16 +1,16 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 
 import npmPackage, { capitalize, formatMoney } from '../src/index';
 
 describe('NPM Package', () => {
     it('should be an object', () => {
-        assert.isObject(npmPackage);
+        assert.equal(typeof npmPackage, 'object');
     });
 
     it('should expose every utility as a named export', () => {
-        assert.isFunction(capitalize);
-        assert.isFunction(formatMoney);
+        assert.equal(typeof capitalize, 'function');
+        assert.equal(typeof formatMoney, 'function');
     });
 
     it('should expose the same functions on the default export', () => {

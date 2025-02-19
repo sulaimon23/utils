@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import getLastDayOfMonthDate from '../src/get-last-day-of-month-date';
 
 describe('Get last day of month date', () => {

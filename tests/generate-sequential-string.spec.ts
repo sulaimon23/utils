@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import generateSequentialString from '../src/generate-sequential-string';
 
 describe('Generate sequential string', () => {

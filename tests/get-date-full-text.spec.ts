@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import getDateFullText from '../src/get-date-full-text';
 
 describe('Get date full text', () => {

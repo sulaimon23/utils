@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import getFirstDayOfWeekDate from '../src/get-first-day-of-week-date';
 
 describe('Get first day of week date', () => {

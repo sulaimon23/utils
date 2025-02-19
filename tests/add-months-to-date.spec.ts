@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import addMonthsToDate from '../src/add-months-to-date';
 
 describe('Add months to date', () => {

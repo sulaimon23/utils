@@ -1,5 +1,5 @@
 import 'mocha';
-import { assert } from 'chai';
+import { strict as assert } from 'node:assert';
 import getFormattedDateString from '../src/get-formatted-date-string';
 
 describe('Get formatted date string', () => {
