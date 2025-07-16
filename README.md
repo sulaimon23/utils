@@ -171,10 +171,14 @@ defaults in the description.
 | `generateRandomString` | `(length?: number, charset?: string): string` | Random string of `length` characters (default `5`) drawn from `charset` (default mixed-case letters plus digits) using `Math.random` — fine for reference codes, not for secrets. |
 | `generateSequentialString` | `(serialNumber: number, outputLength?: number, charset?: string): string` | Renders a base-10 `serialNumber` as a fixed-width base-N string over `charset` (default `32` characters wide over `2346789ABCDEFHKLMNPQRTVWXY`, which omits visually ambiguous glyphs), giving constant-length, collision-free IDs as the serial increments. |
 | `getAAnForWord` | `(word: string): 'a' \| 'an'` | Returns `'an'` when the word's first letter is a vowel and `'a'` otherwise, for grammatical article selection in generated sentences. |
+| `getInitials` | `(name: string, max?: number): string` | Uppercase initials taken from the first `max` words of a name (default `2`), e.g. `'Taiwo Sulaimon'` → `'TS'`, for avatar placeholders. |
+| `isValidEmail` | `(value: string): boolean` | `true` when the value has the shape of an email address; a format check for form validation, not proof the mailbox exists. |
 | `normalizePhoneNumber` | `(phoneNumber: string, countryCode?: string): string` | Prefixes `+` and `countryCode` (default `'234'`), dropping the local trunk `0`; input already starting with `+` is returned untouched, and input starting with `(` is prefixed with `+<countryCode> `. |
+| `slugify` | `(text: string): string` | Lowercases the text, strips accents and punctuation and joins the remaining words with hyphens, producing a URL-safe segment. |
 | `splitCompoundString` | `(compoundString: string): [string, string]` | Splits on whitespace into `[firstToken, everythingElse]` — a full name into first name and the rest — collapsing repeated spaces. |
 | `textSubtract` | `(text: string, subtractLength: number, startIndex?: number, removeExtraSpace?: boolean): string` | Deletes `subtractLength` characters (a **length**, not a substring) starting at `startIndex` (default `0`), and unless `removeExtraSpace` is `false` also swallows the orphaned space left on either side. |
 | `toTitleCase` | `(text: string): string` | Lowercases the text, then uppercases the first letter of each space-separated word and collapses repeated spaces. |
+| `truncate` | `(text: string, maxLength: number, suffix?: string): string` | Shortens `text` to at most `maxLength` characters including the `suffix` (default `'...'`), which is appended only when something was actually cut. |
 | `trimAndLowercase` | `(text: string): string` | Trims and lowercases, coercing `null`/`undefined` to `''`. |
 | `trimAndUppercase` | `(text: string): string` | Trims and uppercases, coercing `null`/`undefined` to `''`. |
 

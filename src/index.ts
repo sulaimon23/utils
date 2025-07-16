@@ -22,6 +22,7 @@ import getFirstDayOfWeekDate from "./get-first-day-of-week-date";
 import getFirstDayOfYearDate from "./get-first-day-of-year-date";
 import getFormattedDateString from "./get-formatted-date-string";
 import getFormattedTimeString from "./get-formatted-time-string";
+import getInitials from "./get-initials";
 import getLastDayOfMonthDate from "./get-last-day-of-month-date";
 import getMonthDiff from "./get-month-diff";
 import getOrdinalSuffix from "./get-ordinal-suffix";
@@ -30,14 +31,17 @@ import getShortTextDate from "./get-short-text-date";
 import getShortTextDayMonthOptionalyear from "./get-short-text-day-month-optionalyear";
 import getStartOfDayDate from "./get-start-of-day-date";
 import isString from "./is-string";
+import isValidEmail from "./is-valid-email";
 import isWeekend from "./is-weekend";
 import normalizePhoneNumber from "./normalize-phone-number";
 import roundOff2Dp from "./round-off-2-dp";
+import slugify from "./slugify";
 import splitCompoundString from "./split-compound-string";
 import textSubtract from "./text-subtract";
 import toTitleCase from "./to-title-case";
 import trimAndLowercase from "./trim-and-lowercase";
 import trimAndUppercase from "./trim-and-uppercase";
+import truncate from "./truncate";
 
 export {
     addDaysToDate,
@@ -64,6 +68,7 @@ export {
     getFirstDayOfYearDate,
     getFormattedDateString,
     getFormattedTimeString,
+    getInitials,
     getLastDayOfMonthDate,
     getMonthDiff,
     getOrdinalSuffix,
@@ -72,14 +77,17 @@ export {
     getShortTextDayMonthOptionalyear,
     getStartOfDayDate,
     isString,
+    isValidEmail,
     isWeekend,
     normalizePhoneNumber,
     roundOff2Dp,
+    slugify,
     splitCompoundString,
     textSubtract,
     toTitleCase,
     trimAndLowercase,
     trimAndUppercase,
+    truncate,
 };
 
 export default {
@@ -107,6 +115,7 @@ export default {
     getFirstDayOfYearDate,
     getFormattedDateString,
     getFormattedTimeString,
+    getInitials,
     getLastDayOfMonthDate,
     getMonthDiff,
     getOrdinalSuffix,
@@ -115,12 +124,15 @@ export default {
     getShortTextDayMonthOptionalyear,
     getStartOfDayDate,
     isString,
+    isValidEmail,
     isWeekend,
     normalizePhoneNumber,
     roundOff2Dp,
+    slugify,
     splitCompoundString,
     textSubtract,
     toTitleCase,
     trimAndLowercase,
     trimAndUppercase,
+    truncate,
 };
