@@ -5,7 +5,7 @@
  * "zenith wogwugwu" => "zenith" "wogwugwu"
  */
 export default (compoundString: string): [string, string] => {
-    const [leftToken, ...rest] = String(compoundString).split(' ').filter(token => String(token).trim());
+    const [leftToken = '', ...rest] = String(compoundString ?? '').split(' ').filter(token => String(token).trim());
     const rightToken = rest.join(' ').trim();
 
     return [leftToken, rightToken];

@@ -15,4 +15,9 @@ describe('Split compound string', () => {
         const actual = splitCompoundString(' zenith   wogwugwu  ugochukwu ');
         assert.deepEqual([...actual].sort(), [...expected].sort());
     });
+
+    it('should return empty tokens for a blank compound string', () => {
+        assert.deepEqual(splitCompoundString(''), ['', '']);
+        assert.deepEqual(splitCompoundString('   '), ['', '']);
+    });
 });

@@ -207,8 +207,6 @@ A few behaviours are worth knowing before you reach for them.
   spans, so long intervals drift by a few days.
 - **`getAAnForWord` inspects spelling, not pronunciation.** `'hour'` yields `'a'`
   and `'university'` yields `'an'`.
-- **`splitCompoundString('')` returns `[undefined, '']`** despite the
-  `[string, string]` return type — guard empty input yourself.
 - **`isString` returns `boolean`, not a `x is string` type guard**, so it won't
   narrow types in a conditional.
 - **`formatMoney` formats with the runtime's default locale** (`toLocaleString`
