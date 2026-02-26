@@ -187,8 +187,12 @@ defaults in the description.
 | Function | Signature | Description |
 | --- | --- | --- |
 | `discountedPrice` | `(value: number, discountAmount?: number, discountPercent?: number): number` | Subtracts a flat `discountAmount` and `discountPercent` of the original `value`; both are computed against the pre-discount value rather than compounding, so `discountedPrice(2000, 200, 10)` is `1600`. |
+| `clamp` | `(value: number, min: number, max: number): number` | Constrains `value` to the inclusive `min`–`max` range. |
 | `formatMoney` | `(amount: number, currencySymbol?: string, minimumFractionDigits?: number, maximumFractionDigits?: number): string` | Prefixes `currencySymbol` (default `'₦'`) to a thousands-separated amount fixed at 2 decimal places by default; falsy or non-numeric amounts render as `0`. |
+| `fromMinorUnits` | `(minorUnits: number): number` | Converts whole minor units back to major units — kobo to naira — rounded to 2 dp for display. |
+| `percentageChange` | `(from: number, to: number): number` | Percentage change from `from` to `to` to 2 dp, negative when the value fell; `0` when `from` is `0`. |
 | `roundOff2Dp` | `(number: number): number` | Rounds to 2 decimal places with a `Number.EPSILON` nudge so borderline binary floats round the way a ledger expects. |
+| `toMinorUnits` | `(amount: number): number` | Converts a major-unit amount to whole minor units — naira to kobo — for the payment gateways that only accept integers. |
 
 ### Misc
 

@@ -5,8 +5,10 @@ import addMonthsToDate from "./add-months-to-date";
 import addSecondsToDate from "./add-seconds-to-date";
 import addYearsToDate from "./add-years-to-date";
 import capitalize from "./capitalize";
+import clamp from "./clamp";
 import discountedPrice from "./discounted-price";
 import formatMoney from "./format-money";
+import fromMinorUnits from "./from-minor-units";
 import generateRandomString from "./generate-random-string";
 import generateSequentialString from "./generate-sequential-string";
 import getAAnForWord from "./get-a-an-for-word";
@@ -34,10 +36,12 @@ import isString from "./is-string";
 import isValidEmail from "./is-valid-email";
 import isWeekend from "./is-weekend";
 import normalizePhoneNumber from "./normalize-phone-number";
+import percentageChange from "./percentage-change";
 import roundOff2Dp from "./round-off-2-dp";
 import slugify from "./slugify";
 import splitCompoundString from "./split-compound-string";
 import textSubtract from "./text-subtract";
+import toMinorUnits from "./to-minor-units";
 import toTitleCase from "./to-title-case";
 import trimAndLowercase from "./trim-and-lowercase";
 import trimAndUppercase from "./trim-and-uppercase";
@@ -51,8 +55,10 @@ export {
     addSecondsToDate,
     addYearsToDate,
     capitalize,
+    clamp,
     discountedPrice,
     formatMoney,
+    fromMinorUnits,
     generateRandomString,
     generateSequentialString,
     getAAnForWord,
@@ -80,10 +86,12 @@ export {
     isValidEmail,
     isWeekend,
     normalizePhoneNumber,
+    percentageChange,
     roundOff2Dp,
     slugify,
     splitCompoundString,
     textSubtract,
+    toMinorUnits,
     toTitleCase,
     trimAndLowercase,
     trimAndUppercase,
@@ -98,8 +106,10 @@ export default {
     addSecondsToDate,
     addYearsToDate,
     capitalize,
+    clamp,
     discountedPrice,
     formatMoney,
+    fromMinorUnits,
     generateRandomString,
     generateSequentialString,
     getAAnForWord,
@@ -127,10 +137,12 @@ export default {
     isValidEmail,
     isWeekend,
     normalizePhoneNumber,
+    percentageChange,
     roundOff2Dp,
     slugify,
     splitCompoundString,
     textSubtract,
+    toMinorUnits,
     toTitleCase,
     trimAndLowercase,
     trimAndUppercase,
