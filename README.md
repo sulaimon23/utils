@@ -114,15 +114,15 @@ const orders = await Order
 
 ### Relative time in a feed
 
-`getDateTimeAgo` needs **both** endpoints — it does not default to "now" — and
-returns abbreviated units, largest first.
+`getDateTimeAgo` returns abbreviated units, largest first, and measures against
+now when you leave the second argument off.
 
 ```ts
 const createdAt = new Date(2022, 11, 17, 20, 47);
 
 utils.getDateTimeAgo(createdAt, new Date(2022, 11, 17, 22, 50));  // '2 hrs 3 mins'
 utils.getDateTimeAgo(createdAt, new Date());                      // e.g. '3 yrs 7 mnths 4 dys'
-utils.getDateTimeAgo(createdAt);                                  // '' — see Caveats
+utils.getDateTimeAgo(createdAt);                                  // same as passing new Date()
 
 utils.getShortTextDayMonthOptionalyear(createdAt);  // '17 Dec 2022' (year dropped if current)
 utils.getFormattedTimeString(createdAt);            // '8:47 PM'
@@ -146,7 +146,7 @@ defaults in the description.
 | `getAge` | `(birthDate: Date \| string \| number, asOf?: Date): number` | Whole years elapsed from `birthDate` to `asOf` (default: now), rolled back a year when the birthday hasn't come round yet. |
 | `getDateDayDiff` | `(date: Date, anotherDate: Date): number` | Whole calendar days between the two dates, compared at midnight and always returned as a non-negative number. |
 | `getDateFullText` | `(input: number \| string \| Date): string` | Formats as `MONTH D, YYYY` with an uppercase full month name, e.g. `DECEMBER 17, 2022`. |
-| `getDateTimeAgo` | `(dateStart: string \| number \| Date, dateEnd?: string \| number \| Date): string` | Elapsed time between two instants as abbreviated units largest-first, e.g. `2 hrs 3 mins`, falling back to `3 secs` or `Instant` under a minute; returns `''` unless both arguments are supplied and parse to valid dates. |
+| `getDateTimeAgo` | `(dateStart: string \| number \| Date, dateEnd?: string \| number \| Date): string` | Elapsed time between two instants as abbreviated units largest-first, e.g. `2 hrs 3 mins`, falling back to `3 secs` or `Instant` under a minute; defaults `dateEnd` to now, and returns `''` if either argument does not parse to a valid date. |
 | `getDayText` | `(input: number \| string \| Date): string` | Full English weekday name for the date, e.g. `Saturday`. |
 | `getEndOfDayDate` | `(daysAgo?: number, date?: Date): Date` | Takes `date` (default: now), rolls it back `daysAgo` days (default `0`) and sets the clock to `23:59:59.999` — the upper bound of a date-range query. |
 | `getFirstDayOfMonthDate` | `(date?: Date): Date` | Midnight on the 1st of the date's month, in local time. |
@@ -205,10 +205,8 @@ defaults in the description.
 
 A few behaviours are worth knowing before you reach for them.
 
-- **`getDateTimeAgo` returns `''` when called with one argument.** The second
-  parameter is typed optional but the guard rejects a missing `dateEnd`; pass
-  `new Date()` explicitly. Its month and year buckets are fixed 30- and 365-day
-  spans, so long intervals drift by a few days.
+- **`getDateTimeAgo` uses fixed 30- and 365-day months and years**, so long
+  intervals drift by a few days.
 - **`getAAnForWord` inspects spelling, not pronunciation.** `'hour'` yields `'a'`
   and `'university'` yields `'an'`.
 - **`isString` returns `boolean`, not a `x is string` type guard**, so it won't

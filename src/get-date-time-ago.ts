@@ -42,16 +42,13 @@
  * When providing custom units, provide them in descending order (eg week,day,hour; not hour,day,week)
  *
  * @param {Date} dateStart - date to compare to
- * @param {Date|string} [dateEnd=new Date()] - second date, can be used as unit param instead
+ * @param {Date} [dateEnd=new Date()] - second date to compare against
  * @returns {DateDifference}
  */
 function getDateDiff(
 	dateStart: Date,
-	dateEnd: Date | string = new Date()
+	dateEnd: Date = new Date()
 ): DateDifference {
-	if (typeof dateEnd === 'string')
-		dateEnd = new Date();
-
 	let delta: number = Math.abs(dateStart.getTime() - dateEnd.getTime());
 
 	return DATE_DIFF_KEYS
@@ -72,8 +69,8 @@ function getSecondsInTimestamp(dateStart: string | number | Date, dateEnd: strin
 	return secsInMsecs ? secsInMsecs + ' sec' + (secsInMsecs > 1 ? 's' : '') : 'Instant';
 }
 
-export default (dateStart: string | number | Date, dateEnd?: string | number | Date): string => {
-	if (!dateEnd || !isValidDate(dateStart) || !isValidDate(dateEnd)) {
+export default (dateStart: string | number | Date, dateEnd: string | number | Date = new Date()): string => {
+	if (!isValidDate(dateStart) || !isValidDate(dateEnd)) {
 		return '';
 	}
 

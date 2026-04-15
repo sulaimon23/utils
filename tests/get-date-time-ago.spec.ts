@@ -62,4 +62,13 @@ describe('Get date time ago', () => {
         const actual = getDateTimeAgo(new Date(2022, 10, 12, 22), new Date(2022, 11, 17, 23));
         assert.equal(actual, expected);
     });
+
+    it('should measure against now when no end date is given', () => {
+        const twoHoursAgo = new Date(Date.now() - (2 * 60 * 60 * 1000));
+        assert.equal(getDateTimeAgo(twoHoursAgo), '2 hrs');
+    });
+
+    it('should return an empty string for an invalid date', () => {
+        assert.equal(getDateTimeAgo('not a date'), '');
+    });
 });
