@@ -19,6 +19,12 @@ jobs:
     # a failing test run would still cut a release
     if: github.event.workflow_run.conclusion == 'success'
 
+    permissions:
+      contents: write       # tags, and the changelog commit from @semantic-release/git
+      issues: write         # release comments on closed issues
+      pull-requests: write
+      packages: write       # publishing to GitHub Packages
+
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -32,8 +38,6 @@ jobs:
       #   node-version: 16.x
     - name: Install dependencies
       run: npm ci
-    - name: Install semantic-release extra plugins
-      run: npm install --save-dev @semantic-release/changelog @semantic-release/git      
     # - name: Lint
     #   run: npm run lint-fix
    # Redundant cos tests workflow has already been run

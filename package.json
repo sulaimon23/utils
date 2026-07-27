@@ -55,6 +55,8 @@
     "@commitlint/cli": "^21.0.0",
     "@commitlint/config-conventional": "^21.0.0",
     "@eslint/js": "^10.0.0",
+    "@semantic-release/changelog": "^7.0.0",
+    "@semantic-release/git": "^11.0.1",
     "@types/mocha": "^10.0.1",
     "@types/node": "^26.0.0",
     "eslint": "^10.0.0",
@@ -63,6 +65,7 @@
     "husky": "^9.0.11",
     "mocha": "^11.0.0",
     "prettier": "^3.1.0",
+    "semantic-release": "^25.0.8",
     "tsx": "^4.20.0",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.65.0"
