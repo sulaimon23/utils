@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/sulaimon23/utils/compare/v1.2.0...v1.2.1) (2026-07-27)
+
+
+### Bug Fixes
+
+* **ci:** publish with the npmrc semantic-release actually reads ([7ea0d10](https://github.com/sulaimon23/utils/commit/7ea0d10969a946f5ecf932a6f61d9dfd46ea752f))
+
 # [1.2.0](https://github.com/sulaimon23/utils/compare/v1.1.0...v1.2.0) (2026-07-27)
 
 
