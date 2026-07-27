@@ -6,6 +6,7 @@ on:
     branches: [master, beta]
     types:
       - completed
+  workflow_dispatch:
 
 # on:
 #   push:
@@ -17,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     # workflow_run fires on completion whatever the outcome, so without this
     # a failing test run would still cut a release
-    if: github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
 
     permissions:
       contents: write       # tags, and the changelog commit from @semantic-release/git
