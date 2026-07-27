@@ -27,30 +27,31 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         fetch-depth: 0
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version: 'lts/*'
-      # with:
-      #   node-version: 16.x
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@sulaimon23'
     - name: Install dependencies
       run: npm ci
-    # - name: Lint
-    #   run: npm run lint-fix
-   # Redundant cos tests workflow has already been run
     - name: Test
       run: npm test
     - name: Build
-      run: npm run build 
-    - name: Create .npmrc file
-      run: |
-        echo registry=https://registry.npmjs.org/ > .npmrc
-        echo @sulaimon23:registry=https://npm.pkg.github.com/ >> .npmrc
-        echo '//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}' >> .npmrc
+      run: npm run build
+    - name: Check registry authentication
+      continue-on-error: true
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npm whoami --registry=https://npm.pkg.github.com/
     - name: Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # npm notice logs every file in the tarball, which overflows execa's
+        # stderr buffer and truncates the actual publish error
+        NPM_CONFIG_LOGLEVEL: error
       run: npx semantic-release
