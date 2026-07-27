@@ -15,6 +15,9 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    # workflow_run fires on completion whatever the outcome, so without this
+    # a failing test run would still cut a release
+    if: github.event.workflow_run.conclusion == 'success'
 
     steps:
     - name: Checkout
